@@ -1,0 +1,32 @@
+{
+  "name": "form-validator",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "author": "Stephen Bussard <stephen.bussard@daveramsey.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d lib --ignore test.js",
+    "postbuild": "uglifyjs --compress --mangle -o lib/index.js -- lib/index.js",
+    "flow": "flow",
+    "flow:watch": "flow --watch",
+    "format": "prettier --single-quote --write ./src/*",
+    "precommit": "run-s test flow format build",
+    "test": "jest src",
+    "test:watch": "jest src --watch"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.61.0",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.9.2",
+    "uglify-js": "^3.2.2"
+  },
+  "dependencies": {}
+}
